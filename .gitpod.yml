@@ -1,16 +1,13 @@
-image: gitpod/workspace-base
+image: gitpod/workspace-full-vnc
 
 tasks:
-- name: install mamba
-  command: |
-    curl -L -O "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
-    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/conda && rm Mambaforge-$(uname)-$(uname -m).sh
-    /workspace/conda/bin/mamba init bash
+  - command: |
+      cd /workspace
+      wget https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip
+      unzip PretextView_Linux-x86-64.zip
 
-    source ${HOME}/.bashrc
-
-vscode:
-  extensions:
-    - anwar.papyrus-pdf
-
-workspaceLocation: "/workspace"
+ports:
+  - port: 5900
+    onOpen: ignore
+  - port: 6080
+    onOpen: open-browser
