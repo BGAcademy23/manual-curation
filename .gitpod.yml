@@ -5,9 +5,13 @@ tasks:
       cd /workspace
       wget https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip
       unzip PretextView_Linux-x86-64.zip
+      wget https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
+           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
+           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py
 
 ports:
   - port: 5900
     onOpen: ignore
   - port: 6080
     onOpen: open-browser
+    visibility: public
