@@ -8,10 +8,10 @@ tasks:
 
     curl -L https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip | unzip -
     unzip PretextView_Linux-x86-64.zip
-    wget https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
+    wget  https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py
-
+    
     cd /workspace
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
     bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
@@ -23,8 +23,13 @@ tasks:
 
 - name: activate env
   command: |
+    cd /workspace
+    chmod a+x *.pl *.py
     /workspace/mambaforge/bin/mamba init bash
     source ${HOME}/.bashrc
+    mamba activate rapid
+    export PATH=/workspace:$PATH
+    clear
 
 ports:
   - port: 5900
