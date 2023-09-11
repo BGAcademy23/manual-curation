@@ -6,7 +6,7 @@ tasks:
     cd /workspace
     curl -L "https://gitlab.com/wtsi-grit/rapid-curation/-/archive/main/rapid-curation-main.tar.gz?path=test_data" | tar xzf -
 
-    curl -L https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip | unzip -
+    wget  https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip
     unzip PretextView_Linux-x86-64.zip
     wget  https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
