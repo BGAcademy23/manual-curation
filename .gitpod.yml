@@ -13,7 +13,8 @@ tasks:
     unzip PretextView_Linux-x86-64.zip
     wget  https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
-          https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py
+          https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py \
+          https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/test_tpf_sanity.pl
     
     cd /workspace
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
