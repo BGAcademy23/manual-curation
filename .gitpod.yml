@@ -22,7 +22,7 @@ tasks:
     /workspace/mambaforge/bin/mamba init bash
     source ${HOME}/.bashrc
 
-    mamba create -n rapid -c bioconda perl-bioperl pyfastaq -y
+    mamba create -n rapid -c bioconda perl-bioperl seqtk pyfastaq -y
 
 - name: activate env
   command: |
