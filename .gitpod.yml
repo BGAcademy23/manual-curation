@@ -1,13 +1,30 @@
 image: gitpod/workspace-full-vnc
 
 tasks:
-  - command: |
-      cd /workspace
-      wget https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip
-      unzip PretextView_Linux-x86-64.zip
-      wget https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
-           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
-           https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py
+- name: download data/scripts and install mamba
+  init: |
+    cd /workspace
+    curl -L "https://gitlab.com/wtsi-grit/rapid-curation/-/archive/main/rapid-curation-main.tar.gz?path=test_data" | tar xzf -
+
+    curl -L https://github.com/wtsi-hpag/PretextView/releases/download/0.2.5/PretextView_Linux-x86-64.zip | unzip -
+    unzip PretextView_Linux-x86-64.zip
+    wget https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_split.pl \
+          https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_join.pl \
+          https://gitlab.com/wtsi-grit/rapid-curation/-/raw/main/rapid_pretext2tpf_XL.py
+
+    cd /workspace
+    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Mambaforge-$(uname)-$(uname -m).sh"
+    bash Mambaforge-$(uname)-$(uname -m).sh -b -p /workspace/mambaforge && rm Mambaforge-$(uname)-$(uname -m).sh
+
+    /workspace/mambaforge/bin/mamba init bash
+    source ${HOME}/.bashrc
+
+    mamba create -n rapid -c bioconda perl-bioperl pyfastaq -y
+
+- name: activate env
+  command: |
+    /workspace/mambaforge/bin/mamba init bash
+    source ${HOME}/.bashrc
 
 ports:
   - port: 5900
@@ -15,3 +32,22 @@ ports:
   - port: 6080
     onOpen: open-browser
     visibility: public
+
+workspaceLocation: "/workspace"
+
+github:
+  prebuilds:
+    # enable for the master/default branch (defaults to true)
+    master: true
+    # enable for all branches in this repo (defaults to false)
+    branches: true
+    # enable for pull requests coming from this repo (defaults to true)
+    pullRequests: true
+    # enable for pull requests coming from forks (defaults to false)
+    pullRequestsFromForks: true
+    # add a "Review in Gitpod" button as a comment to pull requests (defaults to true)
+    addComment: true
+    # add a "Review in Gitpod" button to pull requests (defaults to false)
+    addBadge: false
+    # add a label once the prebuild is ready to pull requests (defaults to false)
+    addLabel: prebuilt-in-gitpod
