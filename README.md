@@ -28,7 +28,7 @@ By the end of this session you will be able to:
 1. Understanding the terms genome assembly, reads, contigs
 2. Understanding of linux command line basics
 3. To have read/watched the rapid curation documentation available at <https://gitlab.com/wtsi-grit/rapid-curation/-/tree/main>
-4. To have read through the HiC_Dummies_Guide
+4. To have read through the Interpreting_HiC_maps guide
 5. Have access to a 3 button mouse
 
 !!! warning "Please make sure you MEET THE PREREQUISITES and READ THE DESCRIPTION above"
