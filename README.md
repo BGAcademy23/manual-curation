@@ -58,7 +58,7 @@ Step 3. Resolve the map within PretextView
 
 Step 4. Output an AGP file from PretextView
 
-This is achieved by navigating to the menu in PretextView (keyboard shortcut "u") and clicking "Generate AGP" 
+    This is achieved by navigating to the menu in PretextView (keyboard shortcut "u") and clicking "Generate AGP" 
 
 Step 5. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. THe output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
 
