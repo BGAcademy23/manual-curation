@@ -56,21 +56,25 @@ Step 3. Resolve the map within PretextView
     
     Ensure any gap that is edtied in the map is reflected in the tpf with a ">" at the start of the "GAP" line.
 
-Step 4. Output an AGP file from PretextView
+Step 4. Add metadata infomration to the assembly
+
+    "Paint" chromosomes using the chromosome paining mode. Keyboard shortcut "s". Also add any metadata tags required for example "X" "Z" "haplotig" etc. usiong metadata tagging mode (keyboard shortcut "m")
+
+Step 5. Output an AGP file from PretextView
 
     This is achieved by navigating to the menu in PretextView (keyboard shortcut "u") and clicking "Generate AGP" 
 
-Step 5. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. THe output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
+Step 6. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. THe output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
 
     python rapid_pretext2tpf_XL.py <tpf> <agp>
     
     Output files will appear in the working directory and will be named: 
         chrs.csv, rapid_prtxt_XL.tpf and haps_rapid_prtxt_XL.tpf 
 
-Step 6. Run rapid_join. This is what generates a new fasta file from the curation manipulations
+Step 7. Run rapid_join. This is what generates a new fasta file from the curation manipulations
 
     perl rapid_join.pl -csv chrs.csv -fa <pre-curation fasta> -tpf rapid_prtxt_XL.tpf -out <name for curated fasta> 
 
     N.B. rapid_join.pl can also be used to output a fasta file of the haplotigs by running the script with the -hap flag and using the haps_rapid_prtxt_XL.tpf file 
 
-Step 7. Normally after this one should re-map the HiC data to the new fasta file and check no errors were made or anything was missed in the first curation effort. We unfortunately do not have time for this during this practical. 
+Step 8. Normally after this one should re-map the HiC data to the new fasta file and check no errors were made or anything was missed in the first curation effort. We unfortunately do not have time for this during this practical. 
