@@ -46,7 +46,7 @@ Step 1. Run rapid_split on your decontaminated, pre-curation fasta file to creat
 
     perl rapid_split.pl -fa <fasta>
 
-Step 2. Launch PretextView to visulise the contact map for the assembly
+Step 2. Launch PretextView to visualise the contact map for the assembly
 
     ./PretextView &
 
@@ -56,7 +56,7 @@ Step 3. Resolve the map within PretextView
     
     Ensure any gap that is edtied in the map is reflected in the tpf with a ">" at the start of the "GAP" line.
 
-Step 4. Add metadata infomration to the assembly
+Step 4. Add metadata information to the assembly
 
     "Paint" chromosomes using the chromosome paining mode. Keyboard shortcut "s". Also add any metadata tags required for example "X" "Z" "haplotig" etc. using metadata tagging mode (keyboard shortcut "m")
 
@@ -64,7 +64,7 @@ Step 5. Output an AGP file from PretextView
 
     This is achieved by navigating to the menu in PretextView (keyboard shortcut "u") and clicking "Generate AGP" 
 
-Step 6. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. THe output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
+Step 6. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. The output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
 
     python rapid_pretext2tpf_XL.py <tpf> <agp>
     
