@@ -58,7 +58,7 @@ Step 3. Resolve the map within PretextView
 
 Step 4. Add metadata infomration to the assembly
 
-    "Paint" chromosomes using the chromosome paining mode. Keyboard shortcut "s". Also add any metadata tags required for example "X" "Z" "haplotig" etc. usiong metadata tagging mode (keyboard shortcut "m")
+    "Paint" chromosomes using the chromosome paining mode. Keyboard shortcut "s". Also add any metadata tags required for example "X" "Z" "haplotig" etc. using metadata tagging mode (keyboard shortcut "m")
 
 Step 5. Output an AGP file from PretextView
 
