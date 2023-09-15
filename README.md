@@ -42,9 +42,14 @@ By the end of this session you will be able to:
 
 ## Instructions
 
+These instructions will guide you through the processing step for the files related to ilThyBati1
+
 Step 1. Run rapid_split on your decontaminated, pre-curation fasta file to create a tpf
 
-    perl rapid_split.pl -fa <fasta>
+    perl rapid_split.pl -fa ./test_data/ilThyBati1.PB.asm1.purge1.polish1.scaff1.decontaminated.fa
+
+    The output will be ilThyBati1.PB.asm1.purge1.polish1.scaff1.decontaminated.fa.tpf
+
 
 Step 2. Launch PretextView to visualise the contact map for the assembly
 
@@ -54,7 +59,7 @@ Step 2. Launch PretextView to visualise the contact map for the assembly
 
 Step 3. Resolve the map within PretextView
     
-    Ensure any gap that is edtied in the map is reflected in the tpf with a ">" at the start of the "GAP" line.
+    Ensure any gap that is edtied in the map is reflected in the tpf with a ">" at the start of the "GAP" line. - the TPF file you created in Step 1.
 
 Step 4. Add metadata information to the assembly
 
@@ -66,14 +71,14 @@ Step 5. Output an AGP file from PretextView
 
 Step 6. Run rapid_prextext2tpf_XL. This takes as input your outputted agp, your edited tpf and the original fasta file. The output of this script is a csv file reflecting the chromosomes, a new tpf file that reflects the structure of what the new curated fasta will look like and a tpf file for an haplotigs that were marked in the curation.
 
-    python rapid_pretext2tpf_XL.py <tpf> <agp>
+    python rapid_pretext2tpf_XL.py ./test_data/ilThyBati1.PB.asm1.purge1.polish1.scaff1.decontaminated.fa ./test_data/ilThyBati1_precurated.pretext.agp_1
     
     Output files will appear in the working directory and will be named: 
         chrs.csv, rapid_prtxt_XL.tpf and haps_rapid_prtxt_XL.tpf 
 
 Step 7. Run rapid_join. This is what generates a new fasta file from the curation manipulations
 
-    perl rapid_join.pl -csv chrs.csv -fa <pre-curation fasta> -tpf rapid_prtxt_XL.tpf -out <name for curated fasta> 
+    perl rapid_join.pl -csv chrs.csv -fa ./test_data/ilThyBati1.PB.asm1.purge1.polish1.scaff1.decontaminated.fa -tpf rapid_prtxt_XL.tpf -out ilThyBati1_1 
 
     N.B. rapid_join.pl can also be used to output a fasta file of the haplotigs by running the script with the -hap flag and using the haps_rapid_prtxt_XL.tpf file 
 
