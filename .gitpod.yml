@@ -25,7 +25,6 @@ tasks:
 
     mamba create -n rapid -c bioconda perl-bioperl seqtk pyfastaq -y
 
-- name: activate env
   command: |
     cd /workspace
     chmod a+x *.pl *.py
